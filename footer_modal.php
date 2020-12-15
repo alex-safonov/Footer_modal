@@ -1,7 +1,6 @@
 <style type="text/css">
-    .poll-modal.modal.fade .modal-dialog {margin-top:10%}
+    .poll-modal.modal.fade .modal-dialog {margin-top:1%}
     .poll-modal .modal-content h3 {margin-bottom: 50px}
-    /*.poll-modal .btn {margin: 10px}*/
     .poll-modal .btn_not {background-color: #d3d3d3}
     p.footer_modal_award {
         margin-bottom: 32px; 
@@ -29,210 +28,829 @@
 </script>
 
 <?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
+$this_year = date("Y");
 ?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_ACTIVE_MONTH.svg">
-
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> Спасибо, что несмотря на рабочие и личные дела ты находишь время и помогаешь тем, кому это очень нужно и выполняешь задания каждый месяц. Лови за это заслуженную награду!</p>
-
-			<p class="footer_modal_award_info">Награда за выполнение заданий каждый месяц.</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>		 
 
 <?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_ACTIVE_YEAR.svg">
+// Модальное окно: Постоянство – признак мастерства (Так держать)
 
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> Спасибо, что помогаешь фондам весь этот год. Такие волонтеры, как ты, двигают мир навстречу переменам к лучшему! Награждаем тебя почетным званием - "Герой года"!</p>
+if ($curVol->GetData()['PROPS']['ACHIEVE_ACTIVE_MONTH']['VALUE']) {
 
-			<p class="footer_modal_award_info">За непрерывное выполнение заданий каждый месяц на протяжении всего года.</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>	
+	$quantity_months = $curVol->GetData()['PROPS']['ACHIEVE_ACTIVE_MONTH']['VALUE'];
 
-<?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_FULL_INFO.svg">
+	if (!isset($_COOKIE['STATUS_ACHIEVE_ACTIVE_MONTH_'.$quantity_months.'']))   
+	{   
+	setcookie('STATUS_ACHIEVE_ACTIVE_MONTH_'.$quantity_months.'',1,time()+(3600 * 24 * 31), '/');
+	?>
+	<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+	     aria-labelledby="poll-modal"
+	     aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content align-center">
 
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> Спасибо за полностью заполненный профиль. Это поможет фондам сделать выбор в пользу тебя. Теперь полный порядок!</p>
+	        	<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="Badges / Template">
+						<g id="Base">
+						<g id="Award_base">
+						<path id="Fill 1" fill-rule="evenodd" clip-rule="evenodd" d="M40.7539 76.9231L0 120L23.9468 125.035L29.2022 147.627L69.9561 104.55L40.7539 76.9231Z" fill="#EA5A0A"/>
+						<path id="Fill 3" fill-rule="evenodd" clip-rule="evenodd" d="M2.6782 117.212L26.6249 122.246L31.8803 144.839L34.0054 142.593L28.75 120L4.8032 114.966" fill="#F8D768"/>
+						<path id="Fill 5" fill-rule="evenodd" clip-rule="evenodd" d="M119.247 76.923L160 120L136.054 125.035L130.798 147.627L90.0439 104.55L119.247 76.923Z" fill="#EA5A0A"/>
+						<path id="Fill 7" fill-rule="evenodd" clip-rule="evenodd" d="M157.697 117.466L133.75 122.5L128.495 145.093L126.37 142.847L131.625 120.254L155.572 115.22" fill="#F8D768"/>
+						<path id="Intersect" fill-rule="evenodd" clip-rule="evenodd" d="M138.346 97.1115C136.762 100.103 134.324 100.716 132.061 101.284C130.254 101.738 128.56 102.164 127.5 103.75C126.258 105.609 126.329 107.736 126.399 109.855C126.49 112.623 126.582 115.376 123.75 117.5C121.091 119.494 118.937 119.265 116.858 119.043C115.028 118.848 113.256 118.659 111.25 120C109.838 120.944 109.077 122.435 108.522 124.081L90.0439 104.55L119.247 76.9231L138.346 97.1115Z" fill="#AE4825"/>
+						<path id="Intersect_2" fill-rule="evenodd" clip-rule="evenodd" d="M21.6538 97.1115C23.238 100.103 25.6761 100.716 27.939 101.284C29.7455 101.738 31.4404 102.164 32.5 103.75C33.7418 105.609 33.6714 107.736 33.6012 109.855C33.5096 112.623 33.4185 115.376 36.25 117.5C38.909 119.494 41.0631 119.265 43.1417 119.043C44.9719 118.848 46.7436 118.659 48.75 120C50.1622 120.944 50.9228 122.435 51.4783 124.081L69.9561 104.55L40.753 76.9231L21.6538 97.1115Z" fill="#AE4825"/>
+						<path id="Star 1" d="M80 12.5C84.9477 12.5 85.6823 18.5724 90.5349 19.5376C95.3875 20.5028 98.39 15.1738 102.961 17.0672C107.532 18.9606 105.887 24.8519 110.001 27.6006C114.115 30.3494 118.928 26.5751 122.426 30.0736C125.925 33.5721 122.151 38.3854 124.899 42.4992C127.648 46.613 133.539 44.9679 135.433 49.539C137.326 54.11 131.997 57.1125 132.962 61.9651C133.928 66.8177 140 67.5523 140 72.5C140 77.4477 133.928 78.1823 132.962 83.0349C131.997 87.8875 137.326 90.89 135.433 95.461C133.539 100.032 127.648 98.387 124.899 102.501C122.151 106.615 125.925 111.428 122.426 114.926C118.928 118.425 114.115 114.651 110.001 117.399C105.887 120.148 107.532 126.039 102.961 127.933C98.39 129.826 95.3875 124.497 90.5349 125.462C85.6823 126.428 84.9477 132.5 80 132.5C75.0523 132.5 74.3177 126.428 69.4651 125.462C64.6125 124.497 61.61 129.826 57.039 127.933C52.4679 126.039 54.113 120.148 49.9992 117.399C45.8854 114.651 41.0721 118.425 37.5736 114.926C34.0751 111.428 37.8494 106.615 35.1006 102.501C32.3519 98.387 26.4606 100.032 24.5672 95.461C22.6738 90.89 28.0028 87.8875 27.0376 83.0349C26.0724 78.1823 20 77.4477 20 72.5C20 67.5523 26.0724 66.8177 27.0376 61.9651C28.0028 57.1125 22.6738 54.11 24.5672 49.539C26.4606 44.9679 32.3519 46.613 35.1006 42.4992C37.8494 38.3854 34.0751 33.5721 37.5736 30.0736C41.0721 26.5751 45.8854 30.3494 49.9992 27.6006C54.113 24.8519 52.4679 18.9606 57.039 17.0672C61.61 15.1738 64.6125 20.5028 69.4651 19.5376C74.3177 18.5724 75.0523 12.5 80 12.5Z" fill="#F8D768"/>
+						<path id="Fill 9" fill-rule="evenodd" clip-rule="evenodd" d="M30 72.4995C30 44.8864 52.3858 22.5 80.0001 22.5C107.614 22.5 130 44.8864 130 72.4995C130 100.115 107.614 122.5 80.0001 122.5C52.3858 122.5 30 100.115 30 72.4995Z" fill="#F7B669"/>
+						<path id="Fill 10" fill-rule="evenodd" clip-rule="evenodd" d="M32.5 72.4995C32.5 46.2659 53.7665 25 80 25C106.233 25 127.5 46.2659 127.5 72.4995C127.5 98.7341 106.233 120 80 120C53.7665 120 32.5 98.7341 32.5 72.4995Z" fill="#A3DDE5"/>
+						</g>
+						</g>
+						<g id="Award">
+						<g id="Badges / Awards / MAOM">
+						<path id="Fill 12" fill-rule="evenodd" clip-rule="evenodd" d="M54.8534 51.189C54.2925 49.53 53.1707 47.891 51.2534 47.589C53.1707 47.028 54.2925 45.604 54.8534 43.989C55.328 45.647 56.1478 47.028 58.4534 47.589C56.1909 48.063 55.2417 49.487 54.8534 51.189Z" fill="#EA5A0A"/>
+						<path id="Fill 13" fill-rule="evenodd" clip-rule="evenodd" d="M113.977 81.517C113.416 79.859 112.294 78.219 110.377 77.917C112.294 77.356 113.416 75.933 113.977 74.317C114.451 75.976 115.271 77.356 117.577 77.917C115.314 78.392 114.365 79.816 113.977 81.517Z" fill="#EA5A0A"/>
+						<path id="Fill 14" fill-rule="evenodd" clip-rule="evenodd" d="M54.8536 84.9821C54.5582 84.1091 53.9673 83.2451 52.9575 83.0861C53.9673 82.7911 54.5582 82.0411 54.8536 81.1901C55.1036 82.0631 55.5353 82.7911 56.7497 83.0861C55.558 83.3361 55.0581 84.0861 54.8536 84.9821Z" fill="#EA5A0A"/>
+						<path id="Fill 15" fill-rule="evenodd" clip-rule="evenodd" d="M60.2857 101.873C60.0002 101.029 59.4293 100.195 58.4536 100.041C59.4293 99.7549 60.0002 99.0309 60.2857 98.2089C60.5272 99.0529 60.9444 99.7549 62.1177 100.041C60.9663 100.282 60.4833 101.007 60.2857 101.873Z" fill="white"/>
+						<path id="Fill 16" fill-rule="evenodd" clip-rule="evenodd" d="M107.317 67.746C106.997 66.801 106.358 65.867 105.266 65.695C106.358 65.376 106.997 64.565 107.317 63.645C107.587 64.589 108.054 65.376 109.367 65.695C108.079 65.966 107.538 66.777 107.317 67.746Z" fill="white"/>
+						<path id="Fill 17" fill-rule="evenodd" clip-rule="evenodd" d="M43.9646 80.5741C43.6452 79.6291 43.0062 78.6951 41.9141 78.5231C43.0062 78.2041 43.6452 77.3931 43.9646 76.4731C44.2349 77.4181 44.7019 78.2041 46.0151 78.5231C44.7265 78.7941 44.1858 79.6051 43.9646 80.5741Z" fill="white"/>
+						<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="32" y="25" width="96" height="95">
+						<g id="mask 2">
+						<path id="Vector" d="M32.5 72.4995C32.5 46.2659 53.7665 25 79.9999 25C106.233 25 127.5 46.2659 127.5 72.4995C127.5 98.7341 106.233 120 79.9999 120C53.7665 120 32.5 98.7341 32.5 72.4995Z" fill="white"/>
+						</g>
+						</mask>
+						<g mask="url(#mask0)">
+						<path id="Fill 22" fill-rule="evenodd" clip-rule="evenodd" d="M61.7216 57.9754C62.7271 68.4401 71.9218 76.0976 82.2586 75.0801C92.5956 74.0617 100.16 64.7541 99.1536 54.2894C99.1196 53.93 99.0746 53.5726 99.0206 53.2203C99.0206 53.2203 97.1936 57.1371 93.3616 57.5968C93.3616 57.5968 98.3916 45.6844 90.0956 38.5068C90.4196 41.2786 88.6776 43.3357 86.5656 43.5888C82.9216 44.0261 78.0172 39.8269 80.8976 28.9815C63.3519 34.839 65.7986 55.2329 65.7986 55.2329C63.9241 54.6579 61.8776 53.0523 61.8776 53.0523C61.6209 54.6437 61.5601 56.2949 61.7216 57.9754Z" fill="#EA5A0A"/>
+						<g id="Group 33">
+						<g id="Group">
+						<g id="Group 26">
+						<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="61" y="28" width="39" height="48">
+						<g id="mask 4">
+						<path id="Vector_2" d="M80.8975 28.9815C78.0171 39.8269 82.9215 44.0261 86.5655 43.5888C88.6775 43.3357 90.4195 41.2786 90.0955 38.5068C98.3915 45.6844 93.3615 57.5968 93.3615 57.5968C97.1935 57.1371 99.0205 53.2203 99.0205 53.2203C99.0745 53.5726 99.1195 53.93 99.1535 54.2894C100.16 64.7541 92.5955 74.0617 82.2585 75.0801C71.9217 76.0976 62.7271 68.4401 61.7216 57.9754C61.5601 56.2949 61.6209 54.6437 61.8776 53.0523C61.8776 53.0523 63.9241 54.6579 65.7986 55.2329C65.7986 55.2329 63.3519 34.839 80.8975 28.9815Z" fill="white"/>
+						</g>
+						</mask>
+						<g mask="url(#mask1)">
+						<path id="Fill 24" fill-rule="evenodd" clip-rule="evenodd" d="M82.5604 76.5006C78.698 73.0909 74.3116 64.6833 73.1934 55.1317C71.5096 40.7481 80.8974 28.9815 80.8974 28.9815L99.6574 36.8485L103.94 68.2944L82.5604 76.5006Z" fill="#AE4825"/>
+						</g>
+						</g>
+						<g id="Group 29">
+						<mask id="mask2" mask-type="alpha" maskUnits="userSpaceOnUse" x="61" y="28" width="39" height="48">
+						<g id="mask 6">
+						<path id="Vector_3" d="M80.8975 28.9815C78.0171 39.8269 82.9215 44.0261 86.5655 43.5888C88.6775 43.3357 90.4195 41.2786 90.0955 38.5068C98.3915 45.6844 93.3615 57.5968 93.3615 57.5968C97.1935 57.1371 99.0205 53.2203 99.0205 53.2203C99.0745 53.5726 99.1195 53.93 99.1535 54.2894C100.16 64.7541 92.5955 74.0617 82.2585 75.0801C71.9217 76.0976 62.7271 68.4401 61.7216 57.9754C61.5601 56.2949 61.6209 54.6437 61.8776 53.0523C61.8776 53.0523 63.9241 54.6579 65.7986 55.2329C65.7986 55.2329 63.3519 34.839 80.8975 28.9815Z" fill="white"/>
+						</g>
+						</mask>
+						<g mask="url(#mask2)">
+						<path id="Fill 27" fill-rule="evenodd" clip-rule="evenodd" d="M81.6594 45.64C80.5704 47.1089 80.3124 50.0903 80.5784 52.3559C80.9034 55.1318 82.7954 56.8862 84.8284 56.6432C86.6204 56.4276 87.5474 54.8402 87.6834 53.1638C89.9994 54.7258 91.5714 58.6659 91.9584 61.9753C92.6644 68.0069 89.0694 74.3958 82.6984 75.1602C78.2355 75.6957 72.287 71.3891 71.5198 64.8352C69.9979 51.8345 81.6594 45.64 81.6594 45.64Z" fill="#F8D768"/>
+						</g>
+						</g>
+						<g id="Group 32">
+						<mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="71" y="45" width="22" height="31">
+						<g id="mask 8">
+						<path id="Vector_4" d="M81.6594 45.64C80.5704 47.1089 80.3124 50.0902 80.5784 52.3559C80.9034 55.1317 82.7954 56.8861 84.8284 56.6432C86.6204 56.4275 87.5474 54.8402 87.6834 53.1637C89.9994 54.7258 91.5714 58.6658 91.9584 61.9752C92.5739 67.2328 89.9213 72.7619 85.0107 74.6006C84.1192 74.8256 83.2003 74.9873 82.2584 75.0801C81.8762 75.1177 81.4955 75.1434 81.1168 75.1576C76.9412 74.6799 72.1992 70.6386 71.5198 64.8351C69.9979 51.8345 81.6594 45.64 81.6594 45.64Z" fill="white"/>
+						</g>
+						</mask>
+						<g mask="url(#mask3)">
+						<path id="Fill 30" fill-rule="evenodd" clip-rule="evenodd" d="M82.9243 44.4463C79.9165 46.2554 75.2903 53.1839 76.2935 61.7555C77.2968 70.3261 82.2003 76.7636 86.6443 76.2301C91.0892 75.6966 97.6631 64.6235 96.9901 58.8733C96.3171 53.1242 82.9243 44.4463 82.9243 44.4463Z" fill="#F7B669"/>
+						</g>
+						</g>
+						</g>
+						</g>
+						<path id="Fill 34" fill-rule="evenodd" clip-rule="evenodd" d="M88.4403 106.994L82.9273 106.878C77.4632 106.761 73.1263 102.182 73.241 96.6497C73.3558 91.1181 77.8787 86.7274 83.3433 86.8439L89.2763 86.4784L100.226 96.1972C100.226 96.1972 93.9043 107.111 88.4403 106.994Z" fill="#DD8E6F"/>
+						<path id="Fill 35" fill-rule="evenodd" clip-rule="evenodd" d="M58.2765 70.6593V71.1371C58.119 78.7318 64.0727 84.729 71.5744 84.8879L73.791 112.661C74.0482 115.905 76.6898 118.426 79.9042 118.494H79.9043C83.1446 118.563 85.9016 116.119 86.2616 112.858L89.3316 84.8879C96.8326 85.0469 103.042 79.2086 103.2 71.614V71.1371L58.2765 70.6593Z" fill="#37444A"/>
+						<g id="Group 38">
+						<g id="Group_2">
+						<mask id="mask4" mask-type="alpha" maskUnits="userSpaceOnUse" x="58" y="70" width="46" height="49">
+						<g id="mask 10">
+						<path id="Vector_5" d="M58.2762 70.6593L103.199 71.1371V71.6139C103.043 79.1326 96.9558 84.9299 89.5559 84.8908L89.3313 84.8879L86.2613 112.858C85.9049 116.086 83.1992 118.514 80.001 118.495L79.904 118.494C76.7216 118.427 74.1008 115.955 73.7991 112.758L73.7907 112.661L71.5741 84.8879C64.1474 84.7305 58.2379 78.8511 58.2731 71.3645L58.2762 71.1371V70.6593Z" fill="white"/>
+						</g>
+						</mask>
+						<g mask="url(#mask4)">
+						<path id="Fill 36" fill-rule="evenodd" clip-rule="evenodd" d="M78.4854 118.968H110.325V70.1873H78.4854V118.968Z" fill="#37444A"/>
+						</g>
+						</g>
+						</g>
+						<path id="Fill 39" fill-rule="evenodd" clip-rule="evenodd" d="M90.3263 95.8933L80.4263 89.6167V86.4784H89.2763L90.3263 87.9969V95.8933Z" fill="#DD8E6F"/>
+						<path id="Fill 40" fill-rule="evenodd" clip-rule="evenodd" d="M70.5371 103.433L65.8862 89.2684L67.9763 86.4784H75.3062L77.4682 88.6459L80.4263 103.486L78.0263 105.511H73.1263L70.5371 103.433Z" fill="#DD8E6F"/>
+						<path id="Fill 41" fill-rule="evenodd" clip-rule="evenodd" d="M89.7266 105.916L97.9986 123.414L119.2 113.205L95.4266 91.9452" fill="#DD8E6F"/>
+						</g>
+						</g>
+						</g>
+						<path id="shadow" fill-rule="evenodd" clip-rule="evenodd" d="M32.7797 77.5C32.5947 75.8019 32.5 74.0806 32.5 72.338C32.5 46.2117 53.7874 25 80.0075 25C105.829 25 126.866 45.5713 127.5 71.15C124.918 47.4492 104.744 28.973 80.2721 28.973C54.0523 28.973 32.765 50.1848 32.765 76.312C32.765 76.709 32.7699 77.105 32.7797 77.5Z" fill="black" fill-opacity="0.08"/>
+						<g id="Quantity">
+						<circle id="Ellipse 3" cx="130" cy="42.5" r="30" fill="#F7B669"/>
+						<circle id="Ellipse 4" cx="130" cy="42.5" r="25" fill="#F8D768"/>
+						<text id="&#209;&#133;1" fill="black" xml:space="preserve" style="white-space: pre" font-family="Montserrat" font-size="18" font-weight="bold" letter-spacing="0px"><tspan x="121.035" y="48.953">&#x445;<?=$curVol->GetData()['PROPS']['ACHIEVE_ACTIVE_MONTH']['VALUE']?></tspan></text>
+						</g>
+						</g>
+						</svg>
 
-			<p class="footer_modal_award_info">У волонтера полностью заполнен профиль.</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>
+				<p class="footer_modal_award"><?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, спасибо, что несмотря на все дела, ты находишь время и помогаешь благотворительным фондам. Лови заслуженную награду!</p>           
 
-<?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_HOPE_NOVICE.svg">
+				<p class="footer_modal_award_info">Награда "Постоянство – признак мастерства!" за непрерывное выполнение заданий хотя бы раз в месяц.</p>
 
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> Спасибо за первое успешно выполненное задание. Благодаря этим вкладам мы помогаем фондам помогать. Верим в твои новые достижения и надеемся, что ты с нами!</p>
+	            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
+	        </div>
+	    </div>
+	</div>
+	<? } ?>		 
+<? } ?>		 
 
-			<p class="footer_modal_award_info">Волонтер присоединился к ProCharity и в первый же месяц натворил много добрых дел!</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>
-
-<?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_SUPERHERO.svg">
-
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> Ура! Ты - наш самый активный и продуктивный волонтер! Спасибо, что ты с нами. Награждаем тебя почетным званием - "Супергерой ProCharity"!</p>
-
-			<p class="footer_modal_award_info">Волонтер стал лауреатом премии ProCharity</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>
-
-<?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_HERO_SEASON.svg">
-
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> В этом сезоне / этой осенью тобой было выполнено на 3 задания больше, чем в прошлом сезоне. Спасибо тебе за то, что не сбавляешь, а только набираешь темпы! Ты – Герой этого сезона!</p>
-
-			<p class="footer_modal_award_info">Волонтер выполнил на Х заданий больше, чем в прошлом сезоне.</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>
-
-<?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_COMMAND_SEASON.svg">
-
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> В этом сезоне / этой осенью ваша команда выполнила на 3 задания больше, чем в прошлом сезоне. Спасибо вам за то, что не сбавляете, а только набираете темпы! Вы – Команда этого сезона!</p>
-
-			<p class="footer_modal_award_info">Компания выполнила на Х заданий больше, чем в прошлом сезоне.</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>
 
 <?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_MASTER.svg">
+// Модальное окно: Бегущий по лезвию задач (Марафонец)
 
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br>
-	        Да ты у нас - Мастер на все руки! Не зря говорят – талантливый человек талантлив во всем!Поздравляем с новым званием за успешное выполнение заданий в нескольких категориях.</p>
+if ($curVol->GetData()['PROPS']['ACHIEVE_ACTIVE_YEAR']['VALUE']) {
 
-			<p class="footer_modal_award_info">Волонтер отличился успешным выполнением заданий в нескольких категориях.</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>
+	$quantity_years = $curVol->GetData()['PROPS']['ACHIEVE_ACTIVE_YEAR']['VALUE'];
+
+	if (!isset($_COOKIE['STATUS_ACHIEVE_ACTIVE_YEAR_'.$quantity_years.'']))   
+	{   
+	setcookie('STATUS_ACHIEVE_ACTIVE_YEAR_'.$quantity_years.'',1,time()+(3600 * 24 * 31 * 12 * 100), '/');
+
+	?>
+	<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+	     aria-labelledby="poll-modal"
+	     aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content align-center">
+
+	        	<svg width="152" height="152" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g id="Badges / Template">
+				<g id="Base">
+				<g id="Award_base">
+				<path id="Fill 1" fill-rule="evenodd" clip-rule="evenodd" d="M40.7539 76.9231L0 120L23.9468 125.035L29.2022 147.627L69.9561 104.55L40.7539 76.9231Z" fill="#EA5A0A"/>
+				<path id="Fill 3" fill-rule="evenodd" clip-rule="evenodd" d="M2.6782 117.212L26.6249 122.246L31.8803 144.839L34.0054 142.593L28.75 120L4.8032 114.966" fill="#F8D768"/>
+				<path id="Fill 5" fill-rule="evenodd" clip-rule="evenodd" d="M119.247 76.923L160 120L136.054 125.035L130.798 147.627L90.0439 104.55L119.247 76.923Z" fill="#EA5A0A"/>
+				<path id="Fill 7" fill-rule="evenodd" clip-rule="evenodd" d="M157.697 117.466L133.75 122.5L128.495 145.093L126.37 142.847L131.625 120.254L155.572 115.22" fill="#F8D768"/>
+				<path id="Intersect" fill-rule="evenodd" clip-rule="evenodd" d="M138.346 97.1115C136.762 100.103 134.324 100.716 132.061 101.284C130.254 101.738 128.56 102.164 127.5 103.75C126.258 105.609 126.329 107.736 126.399 109.855C126.49 112.623 126.582 115.376 123.75 117.5C121.091 119.494 118.937 119.265 116.858 119.043C115.028 118.848 113.256 118.659 111.25 120C109.838 120.944 109.077 122.435 108.522 124.081L90.0439 104.55L119.247 76.9231L138.346 97.1115Z" fill="#AE4825"/>
+				<path id="Intersect_2" fill-rule="evenodd" clip-rule="evenodd" d="M21.6538 97.1115C23.238 100.103 25.6761 100.716 27.939 101.284C29.7455 101.738 31.4404 102.164 32.5 103.75C33.7418 105.609 33.6714 107.736 33.6012 109.855C33.5096 112.623 33.4185 115.376 36.25 117.5C38.909 119.494 41.0631 119.265 43.1417 119.043C44.9719 118.848 46.7436 118.659 48.75 120C50.1622 120.944 50.9228 122.435 51.4783 124.081L69.9561 104.55L40.753 76.9231L21.6538 97.1115Z" fill="#AE4825"/>
+				<path id="Star 1" d="M80 12.5C84.9477 12.5 85.6823 18.5724 90.5349 19.5376C95.3875 20.5028 98.39 15.1738 102.961 17.0672C107.532 18.9606 105.887 24.8519 110.001 27.6006C114.115 30.3494 118.928 26.5751 122.426 30.0736C125.925 33.5721 122.151 38.3854 124.899 42.4992C127.648 46.613 133.539 44.9679 135.433 49.539C137.326 54.11 131.997 57.1125 132.962 61.9651C133.928 66.8177 140 67.5523 140 72.5C140 77.4477 133.928 78.1823 132.962 83.0349C131.997 87.8875 137.326 90.89 135.433 95.461C133.539 100.032 127.648 98.387 124.899 102.501C122.151 106.615 125.925 111.428 122.426 114.926C118.928 118.425 114.115 114.651 110.001 117.399C105.887 120.148 107.532 126.039 102.961 127.933C98.39 129.826 95.3875 124.497 90.5349 125.462C85.6823 126.428 84.9477 132.5 80 132.5C75.0523 132.5 74.3177 126.428 69.4651 125.462C64.6125 124.497 61.61 129.826 57.039 127.933C52.4679 126.039 54.113 120.148 49.9992 117.399C45.8854 114.651 41.0721 118.425 37.5736 114.926C34.0751 111.428 37.8494 106.615 35.1006 102.501C32.3519 98.387 26.4606 100.032 24.5672 95.461C22.6738 90.89 28.0028 87.8875 27.0376 83.0349C26.0724 78.1823 20 77.4477 20 72.5C20 67.5523 26.0724 66.8177 27.0376 61.9651C28.0028 57.1125 22.6738 54.11 24.5672 49.539C26.4606 44.9679 32.3519 46.613 35.1006 42.4992C37.8494 38.3854 34.0751 33.5721 37.5736 30.0736C41.0721 26.5751 45.8854 30.3494 49.9992 27.6006C54.113 24.8519 52.4679 18.9606 57.039 17.0672C61.61 15.1738 64.6125 20.5028 69.4651 19.5376C74.3177 18.5724 75.0523 12.5 80 12.5Z" fill="#F8D768"/>
+				<path id="Fill 9" fill-rule="evenodd" clip-rule="evenodd" d="M30 72.4995C30 44.8864 52.3858 22.5 80.0001 22.5C107.614 22.5 130 44.8864 130 72.4995C130 100.115 107.614 122.5 80.0001 122.5C52.3858 122.5 30 100.115 30 72.4995Z" fill="#F7B669"/>
+				<path id="Fill 10" fill-rule="evenodd" clip-rule="evenodd" d="M32.5 72.4995C32.5 46.2659 53.7665 25 80 25C106.233 25 127.5 46.2659 127.5 72.4995C127.5 98.7341 106.233 120 80 120C53.7665 120 32.5 98.7341 32.5 72.4995Z" fill="#A3DDE5"/>
+				</g>
+				</g>
+				<g id="Award">
+				<g id="Badges / Awards / MAOM">
+				<path id="Fill 18" fill-rule="evenodd" clip-rule="evenodd" d="M66.9288 48.3706C66.3607 46.6927 65.2245 45.034 63.2827 44.7285C65.2245 44.161 66.3607 42.7205 66.9288 41.0863C67.4094 42.7642 68.2396 44.161 70.5748 44.7285C68.2834 45.2086 67.322 46.6491 66.9288 48.3706Z" fill="white"/>
+				<path id="Fill 19" fill-rule="evenodd" clip-rule="evenodd" d="M121.103 67.5693C120.535 65.8913 119.399 64.2326 117.457 63.9271C119.399 63.3596 120.535 61.9191 121.103 60.2849C121.583 61.9627 122.414 63.3596 124.749 63.9271C122.457 64.4072 121.496 65.8476 121.103 67.5693Z" fill="white"/>
+				<path id="Fill 20" fill-rule="evenodd" clip-rule="evenodd" d="M56.2055 71.3108C55.9063 70.4275 55.3079 69.5534 54.2852 69.3926C55.3079 69.0937 55.9063 68.335 56.2055 67.4742C56.4586 68.358 56.8959 69.0937 58.1259 69.3926C56.9189 69.6455 56.4126 70.4043 56.2055 71.3108Z" fill="white"/>
+				<path id="Fill 21" fill-rule="evenodd" clip-rule="evenodd" d="M79.7533 98.181C79.4643 97.3271 78.8861 96.4824 77.8979 96.3276C78.8861 96.0382 79.4643 95.3047 79.7533 94.4731C79.9979 95.327 80.4205 96.0382 81.6088 96.3276C80.4427 96.5714 79.9535 97.3049 79.7533 98.181Z" fill="white"/>
+				<path id="Fill 22" fill-rule="evenodd" clip-rule="evenodd" d="M102.456 47.7163C103.563 47.393 104.209 46.5725 104.533 45.6417C104.806 46.5974 105.279 47.393 106.609 47.7163C105.305 47.9897 104.757 48.8102 104.533 49.7908C104.209 48.8351 103.563 47.8903 102.456 47.7163Z" fill="white"/>
+				<path id="Fill 23" fill-rule="evenodd" clip-rule="evenodd" d="M46.0211 61.2827C45.6976 60.3271 45.0504 59.3823 43.9443 59.2082C45.0504 58.8851 45.6976 58.0646 46.0211 57.1338C46.2948 58.0895 46.7678 58.8851 48.0978 59.2082C46.7927 59.4818 46.2451 60.3022 46.0211 61.2827Z" fill="white"/>
+				<path id="Fill 18_2" fill-rule="evenodd" clip-rule="evenodd" d="M53.2503 86.1288C53.2503 86.1288 62.9349 93.6863 68.5106 95.4234C71.32 96.2985 78.4601 86.1146 78.4601 86.1146L84.9473 75.0452C84.9473 75.0452 83.6155 73.3065 81.1777 72.2052C78.7401 71.1036 75.8188 71.9347 74.2751 75.3438C72.9519 78.2658 68.4945 86.7662 67.799 88.5984C64.9651 86.9948 54.6728 82.7466 54.6728 82.7466C54.6728 82.7466 50.4253 82.6817 53.2503 86.1288Z" fill="#DEA180"/>
+				<path id="Fill 19_2" fill-rule="evenodd" clip-rule="evenodd" d="M55.6049 88.1087C54.6728 87.3206 53.2503 86.1288 53.2503 86.1288C50.4252 82.6817 54.6728 82.7467 54.6728 82.7467C54.6728 82.7467 56.4905 83.4235 58.1165 84.1924L55.6049 88.1087Z" fill="#FFFFFE"/>
+				<path id="Fill 20_2" fill-rule="evenodd" clip-rule="evenodd" d="M54.6731 82.7465C54.6364 82.3415 54.4538 82.073 54.0388 81.6274C54.0388 81.6274 52.5535 80.2592 52.2127 79.9171C50.614 81.5811 46.4989 86.2724 45.2951 87.6787C44.6549 88.4263 44.1486 88.8239 44.805 89.6586C45.3422 90.3415 45.8204 90.301 46.2865 89.9358C47.271 89.2701 48.2919 88.4688 49.8217 87.447C51.2311 87.0939 52.0504 87.2042 52.8051 86.6123C53.3468 86.1864 53.3587 85.7827 52.9402 85.2505C52.4868 84.6739 52.5581 84.08 53.335 83.4709C53.9564 82.9833 54.6731 82.7465 54.6731 82.7465Z" fill="#363752"/>
+				<path id="Fill 22_2" fill-rule="evenodd" clip-rule="evenodd" d="M77.9927 88.8059L69.3472 83.0948C69.3472 83.0948 72.7757 76.3733 74.4924 73.856C76.2091 71.3388 78.6753 70.8067 80.7272 71.7341C83.6015 73.0325 87.1047 75.7894 87.1047 75.7894L77.9927 88.8059Z" fill="black"/>
+				<path id="Path" fill-rule="evenodd" clip-rule="evenodd" d="M89.3403 54.2873L93.9099 61.7656C94.0393 62.0058 94.292 62.1518 94.5633 62.1445L94.5905 62.1433L102.065 62.0234C102.174 61.9081 102.296 61.8046 102.431 61.7159C102.448 61.6928 102.468 61.6708 102.49 61.6505L104.365 59.9426C104.561 59.7615 104.868 59.7741 105.05 59.9707C105.23 60.1672 105.218 60.4733 105.021 60.6543L104.544 61.0889L104.564 61.0866L106.483 60.8978C106.735 60.8336 106.992 60.9797 107.066 61.2258L107.072 61.2472L107.078 61.2746L107.085 61.3072L107.091 61.3448L107.098 61.3872L107.104 61.4339L107.113 61.5117L107.122 61.5978L107.131 61.6913L107.139 61.7912L107.15 61.9328L107.156 62.044L107.16 62.12L107.167 62.2752L107.17 62.3933L107.173 62.5118L107.174 62.5905L107.174 62.6686V62.6919L107.172 62.741C107.172 62.7495 107.171 62.7581 107.171 62.7668L107.167 62.821L107.161 62.8782L107.154 62.9382C107.152 62.9484 107.151 62.9587 107.15 62.9691L107.14 63.0328L107.129 63.0987L107.118 63.1664L107.104 63.2358L107.09 63.3066L107.075 63.3786L107.05 63.4882L107.032 63.5619C107.029 63.5742 107.026 63.5865 107.023 63.5989L107.004 63.6729L106.984 63.7469C106.98 63.7592 106.977 63.7715 106.973 63.7838L106.953 63.8571L106.931 63.9297L106.909 64.0013L106.887 64.0716L106.864 64.1405L106.84 64.2077L106.817 64.2728L106.793 64.3357L106.769 64.3962C106.765 64.406 106.761 64.4157 106.757 64.4254L106.733 64.4816C106.729 64.4907 106.725 64.4997 106.721 64.5085L106.697 64.5599L106.673 64.6079C106.606 64.7385 106.54 64.824 106.483 64.8385L106.184 64.9227L105.86 65.0126L105.574 65.0903L105.324 65.1558L105.145 65.2012L105.081 65.217L104.064 65.4637C103.612 65.5733 103.158 65.526 102.761 65.3566L91.6231 67.0551C91.3425 67.0878 91.0695 66.9534 90.9238 66.7131L90.9101 66.6896L84.1548 55.5214L89.3403 54.2873Z" fill="#DEA180"/>
+				<path id="Fill 24" fill-rule="evenodd" clip-rule="evenodd" d="M87.036 61.4283L92.5364 58.4134L89.2793 53.3265L84.1191 54.8664L87.036 61.4283Z" fill="#EA5A0A"/>
+				<path id="Combined Shape" fill-rule="evenodd" clip-rule="evenodd" d="M79.3776 51.8372L78.754 57.1258L70.1517 58.344C69.8726 58.3834 69.6423 58.5821 69.5627 58.8523L66.1692 66.9466C66.3584 67.2123 66.485 67.522 66.5328 67.8512C66.5465 67.8769 66.558 67.9043 66.5671 67.9331L67.3179 70.3543C67.396 70.602 67.2643 70.8657 67.0225 70.954L67.0014 70.9611C66.7464 71.0414 66.4744 70.8999 66.3941 70.645L66.2031 70.0288L66.1955 70.051L65.6411 72.116C65.5908 72.3785 65.337 72.5503 65.0743 72.5001L65.0451 72.4946C64.9158 72.4706 64.5222 72.3994 64.1194 72.31L64.0438 72.2931C63.7794 72.233 63.5179 72.1659 63.3314 72.1C62.8165 71.9181 62.1021 71.2658 62.1021 70.5066C62.1021 69.7473 62.1466 69.19 62.2341 68.7604L62.443 67.7354C62.5275 67.3209 62.7302 66.9607 63.0089 66.6826L65.9665 54.3791C66.0342 54.0956 66.2667 53.8812 66.555 53.8362L79.3776 51.8372Z" fill="#DEA180"/>
+				<path id="Fill 38" fill-rule="evenodd" clip-rule="evenodd" d="M73.4126 52.2729L73.8651 58.2924L80.1198 57.691L80.0043 51.5324L73.4126 52.2729Z" fill="#EA5A0A"/>
+				<path id="Fill 39" fill-rule="evenodd" clip-rule="evenodd" d="M89.4908 57.2866C90.0742 53.9163 89.9506 51.7724 83.9032 51.3673C78.384 51.218 77.0969 52.0808 76.5134 55.4511L73.4184 71.8759C73.3633 72.1938 73.561 72.4936 73.8599 72.5453L86.1881 73.2181C86.4869 73.2698 86.7735 73.0538 86.8292 72.7357L89.4908 57.2866Z" fill="#EA5A0A"/>
+				<path id="Fill 40" fill-rule="evenodd" clip-rule="evenodd" d="M87.0957 47.6676L87.2385 52.5835C87.2385 53.3928 85.8581 55.2845 84.2032 55.2845C82.5483 55.2845 81.1628 53.6182 81.257 52.1624L81.8353 47.4196L87.0957 47.6676Z" fill="#DEA180"/>
+				<path id="Fill 41" fill-rule="evenodd" clip-rule="evenodd" d="M87.0958 47.6676L87.2386 52.9566C83.8772 51.0694 81.5488 49.7749 81.5488 49.7749L81.8354 47.4196L87.0958 47.6676Z" fill="#CD8469"/>
+				<path id="Fill 42" fill-rule="evenodd" clip-rule="evenodd" d="M85.8095 49.5598C88.6463 49.5598 89.8302 44.8616 89.8302 42.1343C89.8302 39.1929 89.3015 36.6404 84.9901 36.4373C80.6797 36.2339 80.1196 39.0614 80.1196 42.4485C80.1196 45.8138 82.3346 49.3959 85.8095 49.5598Z" fill="#DEA180"/>
+				<path id="Path_2" d="M87.6973 42.7051C88.5075 43.7547 88.9126 44.4748 88.9126 44.8653C88.9126 45.4511 88.4802 45.6391 88.163 45.6391C87.9515 45.6391 87.7963 45.5969 87.6973 45.5126L88.163 45.2607C88.0774 45.3869 88.0792 45.386 88.1685 45.2581C88.2578 45.1301 88.1007 44.2791 87.6973 42.7051Z" fill="#DD8E6F"/>
+				<path id="Fill 44" fill-rule="evenodd" clip-rule="evenodd" d="M80.8178 45.8705C80.0977 45.8365 79.1573 44.6773 79.1913 43.9584C79.2253 43.2396 79.8362 42.6842 80.5559 42.7182C81.276 42.7521 81.831 43.3624 81.7976 44.0813C81.7631 44.8002 81.5369 45.9044 80.8178 45.8705Z" fill="#DEA180"/>
+				<path id="Fill 51" fill-rule="evenodd" clip-rule="evenodd" d="M100.652 97.5905C100.652 97.5905 99.4925 84.2277 98.7795 78.4371C98.4199 75.5193 86.1884 73.218 86.1884 73.218L73.4187 71.8757C73.4187 71.8757 72.3818 73.8046 72.3818 76.4772C72.3818 79.1498 74.3438 81.4661 78.0895 81.4661C81.2997 81.4661 91.5593 81.6775 93.518 81.5552C92.9833 83.3374 93.8745 86.7226 94.3201 88.9494C94.7668 91.1762 97.4416 99.3721 97.4416 99.3721C97.4416 99.3721 100.741 102.045 100.652 97.5905Z" fill="#DEA180"/>
+				<path id="Fill 52" fill-rule="evenodd" clip-rule="evenodd" d="M100.413 94.8861C100.561 96.5342 100.652 97.5904 100.652 97.5904C100.741 102.045 97.4411 99.3721 97.4411 99.3721C97.4411 99.3721 96.9135 97.7574 96.2886 95.7653L100.413 94.8861Z" fill="#FFFFFE"/>
+				<path id="Fill 53" fill-rule="evenodd" clip-rule="evenodd" d="M97.4412 99.372C97.2193 99.714 97.1971 100.038 97.2477 100.644C97.2477 100.644 97.5698 102.637 97.6265 103.115C99.9124 102.794 106.05 101.645 107.866 101.282C108.832 101.089 109.476 101.089 109.476 100.028C109.476 99.1596 109.075 98.8955 108.483 98.8955C107.297 98.8116 105.998 98.8116 104.163 98.6699C102.837 98.0781 102.261 97.4862 101.301 97.4862C100.612 97.4862 100.353 97.7958 100.353 98.4726C100.353 99.2061 99.9296 99.629 98.9411 99.629C98.1511 99.629 97.4412 99.372 97.4412 99.372Z" fill="#363752"/>
+				<path id="Fill 55" fill-rule="evenodd" clip-rule="evenodd" d="M89.951 73.6718L86.5713 83.4232C86.5713 83.4232 79.6465 82.4064 76.643 81.8814C73.6395 81.3564 72.1377 79.3311 72.1377 77.081C72.1377 73.9306 73.4408 71.748 73.4408 71.748L86.8002 72.8442L89.951 73.6718Z" fill="#392B22"/>
+				<path id="Stroke 57" d="M66.6335 103.115H96.289M51.5051 66.8356H59.7441H51.5051ZM39.8486 63.0633H58.1168H39.8486ZM57.2086 59.2911H59.7441H57.2086ZM45.57 59.2911H54.6731H45.57ZM47.9123 80.0566H49.5855H47.9123ZM45.57 81.1504H48.9166H45.57Z" stroke="#FFFFFE" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round"/>
+				<path id="Path 2" fill-rule="evenodd" clip-rule="evenodd" d="M81.0156 43.9112L82.0214 43.8659C82.4189 42.9511 82.6393 42.0832 82.6828 41.2621C82.7263 40.441 82.5956 39.6147 82.2906 38.783L88.8816 37.7901C89.1852 37.2157 89.2506 36.7238 89.0775 36.3144C88.818 35.7004 87.9419 35.7215 87.6333 35.7684C87.4276 35.7997 87.1861 35.9288 86.9087 36.1558C86.9087 35.5213 86.3604 35.204 85.2636 35.204C83.6184 35.204 80.8582 36.8352 78.5684 37.3473C79.1404 37.7277 79.9759 37.8552 81.0751 37.7298C80.1334 38.3535 79.6054 38.929 79.4911 39.4562C79.9547 39.2547 80.2218 39.2547 80.2924 39.4562C79.8725 40.5789 79.6625 41.4908 79.6625 42.1918C79.6625 43.2433 79.6625 42.9933 80.1196 42.7168C80.6006 42.7089 80.8993 43.107 81.0156 43.9112Z" fill="#363752"/>
+				<path id="Fill 56" fill-rule="evenodd" clip-rule="evenodd" d="M89.5526 39.4404C89.5526 39.4404 89.2398 38.3029 88.8813 37.7903C87.2365 37.5919 82.892 37.5039 80.0551 40.1111C80.0551 40.1111 79.6348 41.3957 79.6723 42.0665C82.3006 40.4953 85.3506 39.4404 89.5526 39.4404Z" fill="#E05D29"/>
+				</g>
+				</g>
+				<path id="shadow" fill-rule="evenodd" clip-rule="evenodd" d="M32.7797 77.5C32.5947 75.8019 32.5 74.0806 32.5 72.338C32.5 46.2117 53.7874 25 80.0075 25C105.829 25 126.866 45.5713 127.5 71.15C124.918 47.4492 104.744 28.973 80.2721 28.973C54.0523 28.973 32.765 50.1848 32.765 76.312C32.765 76.709 32.7699 77.105 32.7797 77.5Z" fill="black" fill-opacity="0.08"/>
+				<g id="Quantity">
+				<circle id="Ellipse 3" cx="130" cy="42.5" r="30" fill="#F7B669"/>
+				<circle id="Ellipse 4" cx="130" cy="42.5" r="25" fill="#F8D768"/>
+				<text id="&#209;&#133;1" fill="black" xml:space="preserve" style="white-space: pre" font-family="Montserrat" font-size="18" font-weight="bold" letter-spacing="0px"><tspan x="121.035" y="48.953">&#x445;<?=$curVol->GetData()['PROPS']['ACHIEVE_ACTIVE_YEAR']['VALUE']?></tspan></text>
+				</g>
+				</g>
+				</svg>
+
+				<p class="footer_modal_award"><?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>,  спасибо, что помогаешь фондам на протяжении года. Такие волонтеры, как ты, двигают мир навстречу переменам! Награждаем тебя почетным званием "Бегущий по лезвию задач"!</p>
+
+				<p class="footer_modal_award_info">Награда "Бегущий по лезвию задач" за выполнение заданий ежемесячно в течение 12 месяцев подряд.</p>
+
+	            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
+	        </div>
+	    </div>
+	</div>
+	<? } ?>
+<? } ?>	
+
 
 <?
-//if (!isset($_COOKIE['promotion']))   
-//{   
-//setcookie('promotion',1,time()+31556926, '/');
-?>
-<div class="modal fade poll-modal" tabindex="-1" role="dialog"
-     aria-labelledby="poll-modal"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content align-center">
-        	<!-- <div style="background-image: url(/upload/medialibrary/modal-background.svg); background-repeat: no-repeat; background-position: center; background-size: contain; height: 180px;"> -->
-        	<img src="/upload/medialibrary/ACHIEVE_AMBASSADOR.svg">
+// Модальное окно: Будущий герой (Надежда ProCharity)
 
-            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br>
-	        Спасибо за приглашение, благодаря которому твой друг смог присоединиться к нашей платформе добрых дел! Ты – наш Амбассадор, в связи с чем спешим поздравить тебя с этим почетным званием!</p>
+if ($curVol->GetData()['PROPS']['ACHIEVE_HOPE_NOVICE']['VALUE']) {
 
-			<p class="footer_modal_award_info">Волонтер пригласил трех своих друзей присоединиться к ProCharity.</p>
-            <!-- <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="window.open('https://mspp.ru/','_blank'); ">Перейти на сайт</a></button> -->
-            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
-        </div>
-    </div>
-</div>
-<? //} ?>
+	if (!isset($_COOKIE['STATUS_ACHIEVE_HOPE_NOVICE']))   
+	{   
+	setcookie('STATUS_ACHIEVE_HOPE_NOVICE',1,time()+3155692600, '/');
+	?>
+	<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+	     aria-labelledby="poll-modal"
+	     aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content align-center">
+
+	        	<img src="/upload/medialibrary/ACHIEVE_HOPE_NOVICE.svg">
+
+				<p class="footer_modal_award"><?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, спасибо за первое успешно выполненное задание. Благодаря твоему вкладу мы помогаем фондам помогать. Верим в твои новые достижения и надеемся, что ты теперь с нами!</p>
+
+				<p class="footer_modal_award_info">Награда "Будущий герой" за выполнение задания в течение первых двух месяцев после регистрации. </p>
+
+	            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
+	        </div>
+	    </div>
+	</div>
+	<? } ?>
+<? } ?>
+
+
+<?
+// Модальное окно: Супергерой ProCharity
+
+if ($curVol->GetData()['PROPS']['ACHIEVE_SUPERHERO']['VALUE']) {
+
+	$quantity_superhero_years = $curVol->GetData()['PROPS']['ACHIEVE_SUPERHERO']['VALUE'];
+
+	$array_data = explode(";", $quantity_superhero_years);
+
+	foreach ($array_data as $key => $value_superhero_years) {
+
+		if ($this_year <= $value_superhero_years) {
+
+			if (!isset($_COOKIE['STATUS_ACHIEVE_SUPERHERO'.$value_superhero_years.'']))   
+			{   
+			setcookie('STATUS_ACHIEVE_SUPERHERO'.$value_superhero_years.'',1,time()+(31556926 *100), '/'); 
+			?>
+			<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+			     aria-labelledby="poll-modal"
+			     aria-hidden="true">
+			    <div class="modal-dialog">
+			        <div class="modal-content align-center">
+
+			        	<img src="/upload/medialibrary/ACHIEVE_SUPERHERO.svg">
+
+						<p class="footer_modal_award">Ура! Ты - победитель ежегодной премии ProCharity! Спасибо, что ты с нами. Награждаем тебя почетным званием - "Супергерой ProCharity"!</p>
+
+						<p class="footer_modal_award_info">Награда "Супергерой ProCharity" присваивается волонтеру, ставшему лауреатом ежегодной премии ProCharity.</p>
+
+			            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
+
+			        </div>
+			    </div>
+			</div>
+			<? } ?>
+		<? } ?>
+	<? } ?>
+<? } ?>
+
+
+<?
+// Модальное окно: Мастер на все руки 
+
+if ($curVol->GetData()['PROPS']['ACHIEVE_MASTER']['VALUE']) {
+
+	if (!isset($_COOKIE['STATUS_ACHIEVE_MASTER']))   
+	{   
+	setcookie('STATUS_ACHIEVE_MASTER',1,time()+3155692600, '/');
+	?>
+	<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+	     aria-labelledby="poll-modal"
+	     aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content align-center">
+
+	        	<img src="/upload/medialibrary/ACHIEVE_MASTER.svg">
+
+				<p class="footer_modal_award"><?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, не зря говорят – талантливый человек талантлив во всем! Поздравляем с новым званием "Мастер на все руки" за успешное выполнение заданий в трёх категориях.</p>
+
+				<p class="footer_modal_award_info">Награда "Мастер на все руки" за успешное выполнение заданий сразу в трёх категориях.</p>				
+
+	            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
+	        </div>
+	    </div>
+	</div>
+	<? } ?>
+<? } ?>
+
+
+<?
+// Модальное окно: Герой сезона
+
+$array_data = explode(";", $curVol->GetData()['PROPS']['ACHIEVE_HERO_SEASON']['VALUE']);
+
+	foreach ($array_data as $key => $value_main) {
+		 $array_data_season[$key] = explode(",", $value_main);
+		} 
+	foreach ($array_data_season as $key => $value) {
+
+	switch ($value[1]) {
+    case s1:
+        $season_modal_1 = "зимы";
+		$season_modal_2 = "этой зимой";
+		$season_modal_3 = "Зима";
+        $season_svg = "ACHIEVE_HERO_SEASON_s1_winter.svg";
+        break;
+    case s2:
+        $season_modal_1 = "весны";
+        $season_modal_2 = "этой весной";
+        $season_modal_3 = "Весна";
+        $season_svg = "ACHIEVE_HERO_SEASON_s2_spring.svg";
+        break;
+    case s3:
+        $season_modal_1 = "лета";
+        $season_modal_2 = "этим летом";
+        $season_modal_3 = "Лето";
+        $season_svg = "ACHIEVE_HERO_SEASON_s3_summer.svg";
+        break;
+    case s4:
+        $season_modal_1 = "осени";
+        $season_modal_2 = "этой осенью";
+        $season_modal_3 = "Осень";
+        $season_svg = "ACHIEVE_HERO_SEASON_s4_autumn.svg";
+        break;
+	}
+
+		if (!isset($_COOKIE['SEASON_DONE'.trim($value[0]).'_'.$value[1].'']))   
+			{   
+			setcookie('SEASON_DONE'.trim($value[0]).'_'.$value[1].'',1,time()+31556926000, '/');
+
+		if ($this_year <= $value[0]) {
+
+			if ($value[2] && ($value[2] >= $value[3])) {
+			 
+
+		?>
+				<div class="modal fade poll-modal" tabindex="-1" role="dialog" aria-labelledby="poll-modal"    aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content align-center">
+
+				        	<img src="/upload/medialibrary/<?=$season_svg?>">
+
+							<p class="footer_modal_award" style="margin-top: 40px;">
+								Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>! <br>
+								Поздравляем с достижением цели и выполнением <?=$value[2]?> 
+								задани<? echo (($value[2] == 1) || ($value[2] == 21)) ? 'я' : 'й' ?> в предыдущем сезоне. Спасибо тебе за то, что не сбавляешь, а только набираешь темпы! 
+							</p>
+
+							<p class="footer_modal_award_info">Награда "Герой сезона" вручается волонтерам, которые выполнили в сезоне <?=$season_modal_3?> - <?=$value[0]?> больше заданий, чем в предыдущем сезоне.</p>	
+
+				            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Закрыть</button>
+				        </div>
+				    </div>
+				</div>
+				<? } ?>
+	    	<? } ?>
+	    <? } ?>
+	<? } ?>
+
+
+<?
+// Модальное окно: Команда сезона
+
+$array_data = explode(";", $curVol->GetData()['PROPS']['ACHIEVE_COMMAND_SEASON']['VALUE']);
+
+	foreach ($array_data as $key => $value_main) {
+		 $array_data_season[$key] = explode(",", $value_main);
+		} 
+	foreach ($array_data_season as $key => $value) {
+
+	switch ($value[1]) {
+    case s1:
+        $season_modal_1 = "зимы";
+		$season_modal_2 = "этой зимой";
+		$season_modal_3 = "Зима";
+        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s1_winter.svg";
+        break;
+    case s2:
+        $season_modal_1 = "весны";
+        $season_modal_2 = "этой весной";
+        $season_modal_3 = "Весна";
+        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s2_spring.svg";
+        break;
+    case s3:
+        $season_modal_1 = "лета";
+        $season_modal_2 = "этим летом";
+        $season_modal_3 = "Лето";
+        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s3_summer.svg";
+        break;
+    case s4:
+        $season_modal_1 = "осени";
+        $season_modal_2 = "этой осенью";
+        $season_modal_3 = "Осень";
+        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s4_autumn.svg";
+        break;
+	}
+
+		if (!isset($_COOKIE['SEASON_COMMAND_DONE'.trim($value[0]).'_'.$value[1].'']))   
+			{   
+			setcookie('SEASON_COMMAND_DONE'.trim($value[0]).'_'.$value[1].'',1,time()+31556926000, '/');
+
+		if ($this_year <= $value[0]) {
+
+			if ($value[2] && ($value[2] >= $value[3])) {
+
+				$ending_of_the_word = "";
+					if (($value[2] == 1) || ($value[2] == 21)) {$ending_of_the_word = "е";}
+					elseif (($value[2] == 2) || ($value[2] == 3) || ($value[2] == 4)  || ($value[2] == 22) || ($value[2] == 23) || ($value[2] == 24)) {$ending_of_the_word = "я";}
+					else {$ending_of_the_word = "й";}		
+
+		?>
+				<div class="modal fade poll-modal" tabindex="-1" role="dialog" aria-labelledby="poll-modal"    aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content align-center">
+
+				        	<img src="/upload/medialibrary/<?=$season_command_svg?>">
+
+							<p class="footer_modal_award" style="margin-top: 40px;">
+								Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>! <br>
+								В прошедшем сезоне вы с командой достигли цели и выполнили <?=$value[2]?> задани<?=$ending_of_the_word?>. Спасибо вам за то, что не сбавляете, а только набираете темпы! 
+							</p>
+
+							<p class="footer_modal_award_info">
+							Награда "Команда  сезона <?=$season_modal_3?> - <?=$value[0]?>" присваивается волонтеру, который в составе компании достиг цели сезона <?=$season_modal_3?> - <?=$value[0]?>.
+							</p>
+
+				            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Закрыть</button>
+				        </div>
+				    </div>
+				</div>
+				<? } ?>
+	    	<? } ?>
+	    <? } ?>
+	<? } ?>
+
+
+<?
+// Модальное окно: Герой сезона - цель
+
+$year_for_season = date("Y");
+$month_for_season = date("m");
+$date_today = strtotime (date("d.m.Y"));
+
+$start_spring = strtotime("01.03.".$year_for_season);
+$end_spring = strtotime("31.05.$year_for_season");
+
+$start_summer = strtotime("01.06.".$year_for_season);
+$end_summer = strtotime("31.08.$year_for_season");
+
+$start_autumn = strtotime("01.09.".$year_for_season);
+$end_autumn = strtotime("30.11.$year_for_season");
+
+
+if(($start_spring <= $date_today && $date_today <= $end_spring)){
+        $season_now = "s2";
+}
+elseif(($start_summer <= $date_today && $date_today <= $end_summer)){
+        $season_now = "s3";
+}
+elseif(($start_autumn <= $date_today) && ($date_today <= $end_autumn)){
+        $season_now = "s4";
+}
+else $season_now = "s1"; 
+
+
+$array_data_hero = explode(";", $curVol->GetData()['PROPS']['ACHIEVE_HERO_SEASON']['VALUE']);
+
+					if ($array_data_hero[count($array_data_hero)-1]) {
+						$array_data_last = $array_data_hero[count($array_data_hero)-1];
+					}
+					else {
+						$array_data_last = $array_data_hero[count($array_data_hero)-2];
+					}
+
+					 $array_data_hero_season = explode(",", $array_data_last);
+
+					switch ($array_data_hero_season[1]) {
+				    case s1:
+				        $season_modal_0 = "зима";
+				        $season_modal_1 = "зимы";
+				        $season_modal_2 = "этой зимой";
+				        $season_svg = "ACHIEVE_HERO_SEASON_s1_winter.svg";
+				        break;
+				    case s2:
+				        $season_modal_0 = "весна";
+				        $season_modal_1 = "весны";
+				        $season_modal_2 = "этой весной";
+				        $season_svg = "ACHIEVE_HERO_SEASON_s2_spring.svg";
+				        break;
+				    case s3:
+				    	$season_modal_0 = "лето";
+				        $season_modal_1 = "лета";
+				        $season_modal_2 = "этим летом";
+				        $season_svg = "ACHIEVE_HERO_SEASON_s3_summer.svg";
+				        break;
+				    case s4:
+				        $season_modal_0 = "осень";
+				        $season_modal_1 = "осени";
+				        $season_modal_2 = "этой осенью";
+				        $season_svg = "ACHIEVE_HERO_SEASON_s4_autumn.svg";
+				        break;
+					}
+
+					if ($season_now == "s1" && $month_for_season == "12") {
+						if ($array_data_hero_season[0] == ($year_for_season+1)) {
+							if ($season_now == $array_data_hero_season[1]) { 
+								if (!isset($_COOKIE['SEASON_'.$array_data_hero_season[1].'_'.$array_data_hero_season[0].'']))   
+								{   
+								setcookie('SEASON_'.$array_data_hero_season[1].'_'.$array_data_hero_season[0].'',1,time()+3155692600, '/'); 
+
+					$ending_of_the_word = "";
+					if (($array_data_hero_season[3] == 1) || ($array_data_hero_season[3] == 21)) {$ending_of_the_word = "е";}
+					elseif (($array_data_hero_season[3] == 2) || ($array_data_hero_season[3] == 3) || ($array_data_hero_season[3] == 4)  || ($array_data_hero_season[3] == 22) || ($array_data_hero_season[3] == 23) || ($array_data_hero_season[3] == 24)) {$ending_of_the_word = "я";}
+					else {$ending_of_the_word = "й";}		
+					?> 
+
+								<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+								     aria-labelledby="poll-modal"
+								     aria-hidden="true">
+								    <div class="modal-dialog">
+								        <div class="modal-content align-center">
+
+								        	<img src="/upload/medialibrary/<?=$season_svg?>">
+
+											<p class="footer_modal_award" style="margin-top: 40px;">
+												<?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, ты можешь получить бейдж «Герой <?=$season_modal_1?> - <?=$array_data_hero_season[0]?>», если <?=$season_modal_2?> успешно выполнишь <?=$array_data_hero_season[3]?> задани<?=$ending_of_the_word?> для благотворительных фондов. Может, пришло время стать героем? 
+											</p>
+
+								            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Да!</button>
+								        </div>
+								    </div>
+								</div>
+								<? } ?>
+							<? } ?>
+						<? } ?>
+					<? } ?>
+
+					<?
+					if ($season_now == "s1" && $month_for_season != "12") {
+						if ($array_data_hero_season[0] == $year_for_season) {
+							if ($season_now == $array_data_hero_season[1]) { 
+								if (!isset($_COOKIE['SEASON_'.$array_data_hero_season[1].'_'.$array_data_hero_season[0].'']))   
+								{   
+								setcookie('SEASON_'.$array_data_hero_season[1].'_'.$array_data_hero_season[0].'',1,time()+3155692600, '/'); 
+
+					$ending_of_the_word = "";
+					if (($array_data_hero_season[3] == 1) || ($array_data_hero_season[3] == 21)) {$ending_of_the_word = "е";}
+					elseif (($array_data_hero_season[3] == 2) || ($array_data_hero_season[3] == 3) || ($array_data_hero_season[3] == 4)  || ($array_data_hero_season[3] == 22) || ($array_data_hero_season[3] == 23) || ($array_data_hero_season[3] == 24)) {$ending_of_the_word = "я";}
+					else {$ending_of_the_word = "й";}	
+
+					?> 
+
+								<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+								     aria-labelledby="poll-modal"
+								     aria-hidden="true">
+								    <div class="modal-dialog">
+								        <div class="modal-content align-center">
+
+								        	<img src="/upload/medialibrary/<?=$season_svg?>">
+
+											<p class="footer_modal_award" style="margin-top: 40px;">
+												<?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, ты можешь получить бейдж «Герой <?=$season_modal_1?> - <?=$array_data_hero_season[0]?>», если <?=$season_modal_2?> успешно выполнишь <?=$array_data_hero_season[3]?> задани<?=$ending_of_the_word?> для благотворительных фондов. Может, пришло время стать героем?
+											</p>
+
+								            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Да!</button>
+								        </div>
+								    </div>
+								</div>
+								<? } ?>
+							<? } ?>
+						<? } ?>
+					<? } ?>
+
+					<?
+					if ($season_now != "s1") {
+						if ($array_data_hero_season[0] == $year_for_season) {
+							if ($season_now == $array_data_hero_season[1]) { 
+								if (!isset($_COOKIE['SEASON_'.$array_data_hero_season[1].'_'.$array_data_hero_season[0].'']))   
+								{   
+								setcookie('SEASON_'.$array_data_hero_season[1].'_'.$array_data_hero_season[0].'',1,time()+3155692600, '/'); 
+					
+					$ending_of_the_word = "";
+					if (($array_data_hero_season[3] == 1) || ($array_data_hero_season[3] == 21)) {$ending_of_the_word = "е";}
+					elseif (($array_data_hero_season[3] == 2) || ($array_data_hero_season[3] == 3) || ($array_data_hero_season[3] == 4)  || ($array_data_hero_season[3] == 22) || ($array_data_hero_season[3] == 23) || ($array_data_hero_season[3] == 24)) {$ending_of_the_word = "я";}
+					else {$ending_of_the_word = "й";}
+
+					?> 
+
+								<div class="modal fade poll-modal" tabindex="-1" role="dialog"
+								     aria-labelledby="poll-modal"
+								     aria-hidden="true">
+								    <div class="modal-dialog">
+								        <div class="modal-content align-center">
+
+								        	<img src="/upload/medialibrary/<?=$season_svg?>">
+
+											<p class="footer_modal_award" style="margin-top: 40px;">
+												<?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, ты можешь получить бейдж «Герой <?=$season_modal_1?> - <?=$array_data_hero_season[0]?>», если <?=$season_modal_2?> успешно выполнишь <?=$array_data_hero_season[3]?> задани<?=$ending_of_the_word?> для благотворительных фондов. Может, пришло время стать героем?
+											</p>
+
+								            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Да!</button>
+								        </div>
+								    </div>
+								</div>
+								<? } ?>
+							<? } ?>
+						<? } ?>
+					<? } ?>
+				<? //} ?>
+
+<?
+// Модальное окно: Команда сезона - цель
+
+ $obElement = CIBlockElement::GetByID($curVol->GetData()['PROPS']['COMPANY']['VALUE']);
+ if($arEl = $obElement->GetNext())
+   {$company_name = $arEl['NAME'];}
+
+if ($company_name) {
+	
+	$array_data_command = explode(";", $curVol->GetData()['PROPS']['ACHIEVE_COMMAND_SEASON']['VALUE']);
+
+ 	if ($array_data_command[count($array_data_command)-1]) {
+						$array_data_command_last = $array_data_command[count($array_data_command)-1];
+					}
+					else {
+						$array_data_command_last = $array_data_command[count($array_data_command)-2];
+					}
+
+
+ 	$array_data_command_season = explode(",", $array_data_command_last);
+
+		switch ($value[1]) {
+	    case s1:
+	    	$season_modal_command_0 = "зима";
+	        $season_modal_command_1 = "зимы";
+	        $season_modal_command_2 = "этой зимой";
+	        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s1_winter.svg";			        
+	        break;
+	    case s2:
+	        $season_modal_command_0 = "весна";
+	        $season_modal_command_1 = "весны";
+	        $season_modal_command_2 = "этой весной";	
+	        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s2_spring.svg";		        
+	        break;
+	    case s3:
+	        $season_modal_command_0 = "лето";
+	        $season_modal_command_1 = "лета";
+	        $season_modal_command_2 = "этим летом";	
+	        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s3_summer.svg";		        
+	        break;
+	    case s4:
+	        $season_modal_command_0 = "осень";
+	        $season_modal_command_1 = "осени";
+	        $season_modal_command_2 = "этой осенью";
+	        $season_command_svg = "ACHIEVE_COMMAND_SEASON_s4_autumn.svg";
+	        break;
+		}
+	
+		if ($season_now == "s1" && $month_for_season == "12") {
+			if ($array_data_command_season[0] == ($year_for_season+1)) {
+				if ($season_now == $array_data_command_season[1]) { 
+
+					if (!isset($_COOKIE['COMMAND_'.$array_data_command_season[1].'_'.$array_data_command_season[0].'']))   
+					{   
+					setcookie('COMMAND_'.$array_data_command_season[1].'_'.$array_data_command_season[0].'',1,time()+3155692600, '/'); 
+
+					$ending_of_the_word = "";
+					if (($array_data_command_season[3] == 1) || ($array_data_command_season[3] == 21)) {$ending_of_the_word = "е";}
+					elseif (($array_data_command_season[3] == 2) || ($array_data_command_season[3] == 3) || ($array_data_command_season[3] == 4)  || ($array_data_command_season[3] == 22) || ($array_data_command_season[3] == 23) || ($array_data_command_season[3] == 24)) {$ending_of_the_word = "я";}
+					else {$ending_of_the_word = "й";}			
+		?> 
+
+					<div class="modal fade poll-modal" tabindex="-1" role="dialog" aria-labelledby="poll-modal" aria-hidden="true">
+					    <div class="modal-dialog">
+					        <div class="modal-content align-center">
+
+					        	<img src="/upload/medialibrary/<?=$season_command_svg?>">
+					        	
+					            <p class="footer_modal_award" style="margin-top: 40px;">
+									<?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, ты с командой "<?=$company_name?>" можешь получить бейдж «Команда <?=$season_modal_1?> - <?=$array_data_command_season[0]?>», если <?=$season_modal_2?> вместе вы выполните <?=$array_data_command_season[3]?> задани<?=$ending_of_the_word?> для благотворительных фондов. Может, пришло время стать героями?
+								</p>
+
+								<p class="footer_modal_award_info"></p>
+
+					            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Да!</button>
+					        </div>
+					    </div>
+					</div>
+					<? } ?>
+				<? } ?>
+			<? } ?>				
+		<? } ?>	
+
+		<?
+		if ($season_now == "s1" && $month_for_season != "12") {
+			if ($array_data_command_season[0] == $year_for_season) {
+				if ($season_now == $array_data_command_season[1]) { 
+					if (!isset($_COOKIE['COMMAND_'.$array_data_command_season[1].'_'.$array_data_command_season[0].'']))   
+					{   
+					setcookie('COMMAND_'.$array_data_command_season[1].'_'.$array_data_command_season[0].'',1,time()+3155692600, '/'); 
+
+					$ending_of_the_word = "";
+					if (($array_data_command_season[3] == 1) || ($array_data_command_season[3] == 21)) {$ending_of_the_word = "е";}
+					elseif (($array_data_command_season[3] == 2) || ($array_data_command_season[3] == 3) || ($array_data_command_season[3] == 4)  || ($array_data_command_season[3] == 22) || ($array_data_command_season[3] == 23) || ($array_data_command_season[3] == 24)) {$ending_of_the_word = "я";}
+					else {$ending_of_the_word = "й";}
+		?> 
+
+					<div class="modal fade poll-modal" tabindex="-1" role="dialog" aria-labelledby="poll-modal" aria-hidden="true">
+					    <div class="modal-dialog">
+					        <div class="modal-content align-center">
+
+					        	<img src="/upload/medialibrary/<?=$season_command_svg?>">
+					        	
+					            <p class="footer_modal_award" style="margin-top: 40px;">
+									<?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, ты с командой "<?=$company_name?>" можешь получить бейдж «Команда <?=$season_modal_1?> - <?=$array_data_command_season[0]?>», если <?=$season_modal_2?> вместе вы выполните <?=$array_data_command_season[3]?> задани<?=$ending_of_the_word?> для благотворительных фондов. Может, пришло время стать героями?
+								</p>
+
+								<p class="footer_modal_award_info"></p>
+
+					            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Да!</button>
+					        </div>
+					    </div>
+					</div>
+					<? } ?>
+				<? } ?>
+			<? } ?>				
+		<? } ?>	
+
+
+		<?
+		if ($season_now != "s1") {
+			if ($array_data_command_season[0] == ($year_for_season)) {
+				if ($season_now == $array_data_command_season[1]) { 
+					if (!isset($_COOKIE['COMMAND_'.$array_data_command_season[1].'_'.$array_data_command_season[0].'']))   
+					{   
+					setcookie('COMMAND_'.$array_data_command_season[1].'_'.$array_data_command_season[0].'',1,time()+3155692600, '/'); 
+
+					$ending_of_the_word = "";
+					if (($array_data_command_season[3] == 1) || ($array_data_command_season[3] == 21)) {$ending_of_the_word = "е";}
+					elseif (($array_data_command_season[3] == 2) || ($array_data_command_season[3] == 3) || ($array_data_command_season[3] == 4)  || ($array_data_command_season[3] == 22) || ($array_data_command_season[3] == 23) || ($array_data_command_season[3] == 24)) {$ending_of_the_word = "я";}
+					else {$ending_of_the_word = "й";}					
+		?> 
+
+					<div class="modal fade poll-modal" tabindex="-1" role="dialog" aria-labelledby="poll-modal" aria-hidden="true">
+					    <div class="modal-dialog">
+					        <div class="modal-content align-center">
+
+					        	<img src="/upload/medialibrary/<?=$season_command_svg?>">
+					        	
+					            <p class="footer_modal_award" style="margin-top: 40px;">
+									<?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>, ты с командой "<?=$company_name?>" можешь получить бейдж «Команда <?=$season_modal_1?> - <?=$array_data_command_season[0]?>», если <?=$season_modal_2?> вместе вы выполните <?=$array_data_command_season[3]?> задани<?=$ending_of_the_word?> для благотворительных фондов. Может, пришло время стать героями?
+								</p>
+
+								<p class="footer_modal_award_info"></p>
+
+					            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true" style="margin-top: 40px;">Да!</button>
+					        </div>
+					    </div>
+					</div>
+					<? } ?>
+				<? } ?>
+			<? } ?>				
+		<? } ?>	
+
+	<?// } ?>				
+<? } ?>				
+
+
+<?
+// Модальное окно: Будущий герой (Надежда ProCharity) - возможно получение
+
+if (!($curVol->GetData()['PROPS']['ACHIEVE_HOPE_NOVICE']['VALUE'])) {
+
+	if (($curVol->GetData()['PROPS']['STATUS']['VALUE'] == "Промодерирован") && ($curVol->GetData()['PROPS']['DATE_MODERATED']['VALUE'])) {
+
+		$today = date("Y-m-d H:i:s"); 
+		$date_moderated = date_create($curVol->GetData()['PROPS']['DATE_MODERATED']['VALUE']);
+		date_add($date_moderated, date_interval_create_from_date_string('2 months'));
+
+		$date_moderated_2 = date_format($date_moderated, "Y-m-d H:i:s"); 
+
+		if (!isset($_COOKIE['ADD_STATUS_ACHIEVE_HOPE_NOVICE'])) {   
+			setcookie('ADD_STATUS_ACHIEVE_HOPE_NOVICE',1,time()+3155692600, '/');
+
+			if (strtotime($date_moderated_2) > strtotime($today)) {
+			?>
+				<div class="modal fade poll-modal" tabindex="-1" role="dialog" aria-labelledby="poll-modal"
+				     aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content align-center">
+
+				        	<img src="/upload/medialibrary/ACHIEVE_HOPE_NOVICE.svg">
+
+				            <p class="footer_modal_award">Привет, <?= $curVol->GetData()['PROPS']['NAME']['VALUE'] ?>!  <br> Получи достижение "Будущий герой" в случае выполнения хотя бы одного задания до <?= date_format($date_moderated, 'd.m.Y'); ?> г.
+							</p>
+	
+							<p class="footer_modal_award_info">Достижение "Будущий герой" присваивается волонтеру, выполнившему задание в течение первых двух месяцев после регистрации на платформе. </p>
+
+				            <button type="button" class="btn " data-dismiss="modal" aria-hidden="true">Закрыть</button>
+				        </div>
+				    </div>
+				</div>
+			<? } ?>
+		<? } ?>
+	<? } ?>
+<? } ?>
+
